@@ -194,7 +194,7 @@ export const MontagemCompleta = () => {
                   src={item.urlImagem}
                   alt={item.nomeModelo || `camada-${index}`}
                   className={styles.imagemCamada}
-                  style={{ zIndex: index }}
+                  style={{ zIndex: ordenadas.length - index }}
                 />
               ))}
             </div>
