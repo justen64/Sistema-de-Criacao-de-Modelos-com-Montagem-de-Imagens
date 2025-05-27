@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.containerPrincipal {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.containerTabela {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.containerCabecalho{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+
+.tabela{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+.botao {
+  width: 15%;
+  height: 40px;
+  background-color: #070707;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+}
+.botao:hover {
+  background-color: #440986;
+}
+
+.tableContainer {
+  padding: 1rem;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.searchInut{
+    height: 48px;
+    width: 237px;
+}
+
+.teste{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #070707;
+}
+
+.filtersLeft {
+  display: flex;
+  gap: 0.5rem;
+}
+
+:global(.p-datatable) {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+:global(.p-datatable .p-datatable-thead > tr > th) {
+  background: #F2F2F7;
+  color: #8E8E93;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 1rem;
+  text-align: left;
+  border: none;
+}
+
+:global(.p-datatable .p-datatable-tbody > tr > td) {
+  padding: 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif !important;
+  font-style: normal;
+  color: #070707 !important;
+}
+
+:global(.p-datatable .p-paginator) {
+  border-top: 1px solid #eee;
+  padding: 0.75rem;
+}
+
+.statusTag {
+  background-color: #e0f7df;
+  color: #267a27;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+.desativado {
+ background-color: #f8d7da;
+  color: #721c24;
+}
+
+.botaoAtivo {
+  background-color: black !important;
+  color: white !important;
+  height: 30px;
+}
+
+:global(.p-checkbox-box.p-highlight) {
+  background-color: #5D2D91;
+  border-color: #5D2D91;
+}
+
+:global(.p-checkbox-box.p-highlight .p-checkbox-icon) {
+  color: white;
+}
+
+.containerGerarImagem{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100px;
+}
+
+@media (max-width: 1024px) {
+  .containerPrincipal {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .containerCabecalho {
+    padding: 15px;
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerWrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .searchInut {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .filtersLeft {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tabela {
+    padding: 10px;
+  }
+  
+  .botao {
+    width: 100%;
+    max-width: 200px;
+    margin: 10px 0;
+  }
+  
+  
+  :global(.p-datatable) {
+    font-size: 14px;
+  }
+  
+  :global(.p-datatable .p-datatable-thead > tr > th),
+  :global(.p-datatable .p-datatable-tbody > tr > td) {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerPrincipal {
+    padding: 10px;
+  }
+  
+  .containerCabecalho {
+    padding: 10px;
+  }
+  
+  .headerWrapper {
+    padding: 10px;
+  }
+  
+  .botao {
+    font-size: 14px;
+    height: 36px;
+  }
+  
+  .statusTag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+  
+  .teste {
+    right: 10px;
+  }
+}

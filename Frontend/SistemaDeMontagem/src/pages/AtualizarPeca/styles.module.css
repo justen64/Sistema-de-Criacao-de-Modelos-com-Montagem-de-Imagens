@@ -1,0 +1,559 @@
+.containerPrincipal {
+  display: flex;
+  align-items: center;
+   height:100vh;
+  width: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.containerRegistrar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.containerSalvar{
+    display: flex;
+    width: 100%;
+    background-color: #F2F2F7;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.containerTextoSalvar{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9375rem;
+}
+
+.containerBotaoSalvar{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: center;
+    gap: 25px;
+}
+
+.botaoDescartar{
+width: 5.75rem;
+  height: 3rem;
+  background-color: #F2F2F7;
+  color: 070707;
+  border: 1px solid #070707;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.botaoDescartar:hover {
+  background-color: #440986;
+  color: #FFFFFF ;
+}
+
+.botaoSalvar {
+  width: 4.375rem;
+  height: 48px;
+  background-color: #070707;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.botaoSalvar:hover {
+  background-color: #440986;
+}
+
+
+.containerCabecalho{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 54px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.titulo{
+  display: flex;
+  flex-direction: row;
+  width: 100% ;
+  height: 3.375rem;
+  justify-content: space-between;
+}
+.nomeModelo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30%;
+  gap: 15px;
+  margin-left: 15px;
+}
+
+.overlayLoading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botaoApagar {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botaoApagar:hover {
+  background-color: #c62828;
+}
+
+.inputStatus{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+:global(.p-inputswitch) {
+  position: relative;
+  width: 40px;
+  height: 25px;
+  border: 2px solid #D1D1D6;
+  border-radius: 999px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+:global(.p-inputswitch-slider) {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 999px;
+  transition: background-color 0.3s;
+}
+
+:global(.p-inputswitch-slider:before) {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 98%;
+  left: 4px;
+  transform: translateY(-50%);
+  background-color: #D1D1D6;
+  border-radius: 50%;
+  transition: left 0.3s ease;
+}
+
+
+:global(.p-inputswitch.p-highlight .p-inputswitch-slider) {
+  border: 2px solid #5D2D91;
+}
+
+:global(.p-inputswitch.p-highlight .p-inputswitch-slider:before) {
+  left: 18px;
+   background-color: #5D2D91
+   
+}
+
+
+
+.containerEdicao {
+  display: flex;
+  gap: 2rem;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.infoGerais,
+.infoDados {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  flex: 1;
+  width: 456px;
+}
+
+.infoDados{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.field input,
+.field select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.generatedKey {
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+
+.containerImagem {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.labelTitulo {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.areaUpload {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.previewImagem {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.previewImagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.botaoRemover {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: #fff;
+  color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  line-height: 18px;
+  text-align: center;
+  padding: 0;
+}
+
+.imagem{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.inputUpload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.iconeUpload {
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.confirmDialog {
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  height: 25%;
+  width: 30%;
+}
+
+.confirmHeader {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  padding: 15px;
+}
+
+.confirmContent {
+  font-size: 1rem;
+  color: #555;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.confirmIcon {
+  font-size: 1.5rem;
+  color: #e53e3e;
+  margin-right: 0.5rem;
+}
+
+.confirmFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 15px;
+}
+
+.confirmButtonCancel {
+  background: transparent;
+  border: none;
+  color: #6366f1;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.confirmButtonDelete {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+
+
+@media (max-width: 768px) {
+  .containerPrincipal {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    align-items: stretch;
+  }
+
+  .containerRegistrar {
+    padding: 10px;
+    height: auto;
+  }
+
+  .containerSalvar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .containerTextoSalvar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .containerBotaoSalvar {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .botaoDescartar,
+  .botaoSalvar {
+    width: 48%;
+  }
+
+  .containerCabecalho {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 10px;
+  }
+
+  .titulo {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+
+  .nomeModelo {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .inputStatus {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .containerEdicao {
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .infoGerais,
+  .infoDados {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoDados {
+    gap: 20px;
+  }
+
+  .containerImagem {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .areaUpload {
+    flex-direction: column;
+  }
+
+  .previewImagem {
+    width: 100%;
+    height: 200px;
+  }
+
+  .inputUpload {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  
+  :global(.p-inputswitch) {
+    width: 50px;
+    height: 30px;
+  }
+
+  :global(.p-inputswitch-slider:before) {
+    width: 16px;
+    height: 16px;
+  }
+
+  :global(.p-inputswitch.p-highlight .p-inputswitch-slider:before) {
+    left: 28px;
+  }
+
+    .confirmDialog {
+    width: 95%; /* Ocupa quase toda a largura */
+    height: auto;
+    min-height: 30%; /* Altura mínima */
+  }
+  
+  .confirmHeader {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+  
+  .confirmContent {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+  
+  .confirmFooter {
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 12px;
+  }
+  
+  .confirmButtonCancel,
+  .confirmButtonDelete {
+    width: 45%; 
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .containerTextoSalvar p {
+    font-size: 14px;
+  }
+
+  .botaoDescartar,
+  .botaoSalvar {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .field input,
+  .field select {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .generatedKey {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .confirmDialog {
+    border-radius: 8px;
+    width: 98%;
+  }
+  
+  .confirmHeader {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .confirmContent {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+  
+  .confirmFooter {
+    flex-direction: column-reverse; 
+    gap: 0.5rem;
+  }
+  
+  .confirmButtonCancel,
+  .confirmButtonDelete {
+    width: 100%;
+  }
+}

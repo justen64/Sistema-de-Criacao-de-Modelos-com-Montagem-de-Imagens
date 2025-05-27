@@ -1,0 +1,288 @@
+.containerPrincipal {
+  display: flex;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.montagemContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerProdutoMontado {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.overlayLoading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerSalvar {
+  display: flex;
+  width: 100%;
+  background-color: #f2f2f7;
+  height: 10%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.containerTextoSalvar {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.containerBotaoSalvar {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: center;
+  gap: 25px;
+}
+
+.botaoDescartar {
+  width: 5.75rem;
+  height: 3rem;
+  background-color: #f2f2f7;
+  color: #070707;
+  border: 1px solid #070707;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botaoDescartar:hover {
+  background-color: #440986;
+  color: #ffffff;
+}
+
+.botaoSalvar {
+  width: 4.375rem;
+  height: 48px;
+  background-color: #070707;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botaoSalvar:hover {
+  background-color: #440986;
+}
+
+.containerCabecalho {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 3.375rem;
+  justify-content: space-between;
+}
+
+.nomeModelo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30%;
+  gap: 15px;
+  margin-left: 15px;
+}
+
+.inputStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+.tabelaInfo {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 50%;
+  height: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.tabelaCabecalho,
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.tabelaCabecalho {
+  font-weight: bold;
+  color: #444;
+  background-color: #f2f2f7;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 0.5rem;
+}
+
+.tabelaCorpo {
+  width: 100%;
+}
+
+.linha {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  font-size: 0.95rem;
+  padding: 10px;
+}
+
+.key {
+  font-weight: 600;
+  color: #333;
+  word-break: break-word;
+}
+
+.ordem {
+  font-weight: bold;
+}
+
+.visualizacaoBonet {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagemCamada {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1023px) {
+  .containerProdutoMontado {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .tabelaInfo {
+    width: 90%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .visualizacaoBonet {
+    width: 90%;
+    max-width: 400px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerSalvar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .containerTextoSalvar,
+  .containerBotaoSalvar {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .containerCabecalho {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .titulo {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .nomeModelo,
+  .inputStatus {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .tabelaCabecalho,
+  .linha {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .botaoDescartar,
+  .botaoSalvar {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visualizacaoBonet {
+    height: 250px;
+  }
+
+  .tabelaCabecalho,
+  .linha {
+    font-size: 0.8rem;
+  }
+
+  .botaoDescartar,
+  .botaoSalvar {
+    height: 2.5rem;
+    font-size: 14px;
+  }
+}

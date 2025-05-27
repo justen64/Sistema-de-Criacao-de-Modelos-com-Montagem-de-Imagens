@@ -1,0 +1,21 @@
+.inputPequeno {
+  width: 22.5rem;
+  height: 3rem;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.inputPequeno:focus{
+   outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+@media (max-width: 320px) {
+
+  .inputPequeno {
+    width: 18rem;
+  }
+}
