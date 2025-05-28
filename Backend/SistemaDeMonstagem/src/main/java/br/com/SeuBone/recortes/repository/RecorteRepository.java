@@ -13,6 +13,7 @@ import br.com.SeuBone.recortes.entity.Recorte;
 
 @Repository
 public interface RecorteRepository extends JpaRepository<Recorte, Long> {
+	boolean existsBySku(String sku);
 
 	 @Query("SELECT r FROM Recorte r WHERE r.tipoProduto = :tipoProduto " +
 	           "ORDER BY r.ordemExibicao ASC")

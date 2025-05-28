@@ -1,6 +1,7 @@
 package br.com.SeuBone.recortes.entity;
 
 import br.com.SeuBone.recortes.Enums.Status;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,6 +20,7 @@ public class Recorte {
     
     private Integer ordemExibicao;
     
+	@Column(unique = true, nullable = false)
     private String sku;
     
     

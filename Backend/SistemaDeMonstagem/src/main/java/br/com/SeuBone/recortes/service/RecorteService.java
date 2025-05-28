@@ -86,7 +86,6 @@ public class RecorteService {
 
 
     public RecorteResponseDTO salvar(RecorteRequestDTO dto, MultipartFile imagem) {
-       
         if (dto.getTipoRecorte() == null || dto.getTipoProduto() == null) {
             throw new IllegalArgumentException("Tipo de recorte e produto são obrigatórios");
         }
@@ -101,12 +100,15 @@ public class RecorteService {
         try {
             String url = cloudinaryService.uploadImagem(imagem, dto);
             recorte.setUrlImagem(url);
+
+            Recorte salvo = repository.save(recorte);
+            return toDTO(salvo);
+
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("SKU já existe. Escolha outro valor.");
         } catch (IOException e) {
             throw new RuntimeException("Erro ao fazer upload da imagem", e);
         }
-
-        Recorte salvo = repository.save(recorte);
-        return toDTO(salvo);
     }
 
     public RecorteResponseDTO atualizar(Long id, RecorteRequestDTO dto, MultipartFile novaImagem) {
@@ -120,6 +122,10 @@ public class RecorteService {
 
             if (camposImagemAlterados && (novaImagem == null || novaImagem.isEmpty())) {
                 throw new IllegalArgumentException("Ao alterar tipo/material/cor, envie uma nova imagem");
+            }
+            
+            if (!recorte.getSku().equals(dto.getSku()) && repository.existsBySku(dto.getSku())) {
+                throw new IllegalArgumentException("SKU já está sendo usado por outro recorte.");
             }
 
           
