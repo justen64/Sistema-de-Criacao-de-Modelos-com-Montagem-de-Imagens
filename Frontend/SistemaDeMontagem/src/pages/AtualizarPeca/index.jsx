@@ -261,11 +261,21 @@ export const AtualizarPeca = () => {
                 </div>
                 <div className={styles.field}>
                   <label>Tipo da recorte</label>
-                  <input
-                    type="text"
+                  <select
                     value={tipoRecorte}
-                    onChange={(e) => setTipoRecorte(e.target.value)}
-                  />
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setTipoRecorte(value);
+
+                      if (value === "aba") setOrdemExibicao("1");
+                      else if (value === "frente") setOrdemExibicao("2");
+                      else if (value === "lateral") setOrdemExibicao("3");
+                    }}
+                  >
+                    <option value="frente">Frente</option>
+                    <option value="aba">Aba</option>
+                    <option value="lateral">Lateral</option>
+                  </select>
                 </div>
                 <div className={styles.field}>
                   <label>Posição da imagem</label>
@@ -281,23 +291,27 @@ export const AtualizarPeca = () => {
                     type="number"
                     value={ordemExibicao}
                     onChange={(e) => setOrdemExibicao(e.target.value)}
+                    readOnly
                   />
                 </div>
                 <div className={styles.field}>
                   <label>Tecido</label>
-                  <input
-                    type="text"
+                  <select
                     value={tecido}
                     onChange={(e) => setTecido(e.target.value)}
-                  />
+                  >
+                    <option value="linho">Linho</option>
+                  </select>
                 </div>
                 <div className={styles.field}>
                   <label>Cor do tecido</label>
-                  <input
-                    type="text"
+                  <select
                     value={corTecido}
                     onChange={(e) => setCorTecido(e.target.value)}
-                  />
+                  >
+                    <option value="azul_marinho">Azul marinho</option>
+                    <option value="laranja">Laranja</option>
+                  </select>
                 </div>
               </div>
             </div>
