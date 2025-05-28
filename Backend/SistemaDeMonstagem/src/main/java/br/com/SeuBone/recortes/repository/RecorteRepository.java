@@ -21,15 +21,22 @@ public interface RecorteRepository extends JpaRepository<Recorte, Long> {
 	        @Param("tipoProduto") String tipoProduto);
 	 
 	 @Query("SELECT r FROM Recorte r WHERE " +
-				"(:tipoRecorte IS NULL OR r.tipoRecorte = :tipoRecorte) AND " +
-				"(:material IS NULL OR r.material = :material) AND " +
-				"(:posicaoRecorte IS NULL OR r.posicaoRecorte = :posicaoRecorte) AND " +
-				"(:sku IS NULL OR r.sku = :sku) AND " +
-				"(:corMaterial IS NULL OR r.corMaterial = :corMaterial)")
-		Page<Recorte> findByFiltros(@Param("tipoRecorte") String tipoRecorte,
-				@Param("material") String material,
-				@Param("corMaterial") String corMaterial,
-				@Param("posicaoRecorte") String posicaoRecorte,
-				@Param("sku") String sku,
-				Pageable pageable);
+		        "(:tipoRecorte IS NULL OR r.tipoRecorte = :tipoRecorte) AND " +
+		        "(:material IS NULL OR r.material = :material) AND " +
+		        "(:corMaterial IS NULL OR r.corMaterial = :corMaterial) AND " +
+		        "(:posicaoRecorte IS NULL OR r.posicaoRecorte = :posicaoRecorte) AND " +
+		        "(:sku IS NULL OR r.sku = :sku) AND " +
+		        "(:nomeModelo IS NULL OR LOWER(r.nomeModelo) LIKE LOWER(CONCAT('%', :nomeModelo, '%'))) AND " +
+		        "(:tipoProduto IS NULL OR r.tipoProduto = :tipoProduto) AND " +
+		        "(:status IS NULL OR r.status = :status)")
+		Page<Recorte> findByFiltros(
+		        @Param("tipoRecorte") String tipoRecorte,
+		        @Param("material") String material,
+		        @Param("corMaterial") String corMaterial,
+		        @Param("posicaoRecorte") String posicaoRecorte,
+		        @Param("sku") String sku,
+		        @Param("nomeModelo") String nomeModelo,
+		        @Param("tipoProduto") String tipoProduto,
+		        @Param("status") Status status,
+		        Pageable pageable);
 }

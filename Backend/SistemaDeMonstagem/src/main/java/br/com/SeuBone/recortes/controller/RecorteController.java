@@ -72,25 +72,21 @@ public class RecorteController {
     
     @GetMapping("/filtro")
     public Page<RecorteResponseDTO> filtrarRecortes(
-            @RequestParam(required = false) String tipoRecorte,
-            @RequestParam(required = false) String material,
-            @RequestParam(required = false) String corMaterial,
-            @RequestParam(required = false) String posicaoRecorte,
-            @RequestParam(required = false) String sku,
-            @RequestParam(required = false) String nome,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "ordemExibicao") String sort) {
-
-        tipoRecorte = (tipoRecorte != null && tipoRecorte.isBlank()) ? null : tipoRecorte;
-        material = (material != null && material.isBlank()) ? null : material;
-        posicaoRecorte = (posicaoRecorte != null && posicaoRecorte.isBlank()) ? null : posicaoRecorte;
-        sku = (sku != null && sku.isBlank()) ? null : sku;
-        nome = (nome != null && nome.isBlank()) ? null : nome;
-        corMaterial = (corMaterial != null && corMaterial.isBlank()) ? null : corMaterial;
-
-        return service.filtrar(tipoRecorte, material, corMaterial, posicaoRecorte, sku, nome, page, size, sort);
-    }
+    	    @RequestParam(required = false) String tipoRecorte,
+    	    @RequestParam(required = false) String material,
+    	    @RequestParam(required = false) String corMaterial,
+    	    @RequestParam(required = false) String posicaoRecorte,
+    	    @RequestParam(required = false) String sku,
+    	    @RequestParam(required = false) String nomeModelo,
+    	    @RequestParam(required = false) String tipoProduto,
+    	    @RequestParam(required = false) Status status,
+    	    @RequestParam(defaultValue = "0") int page,
+    	    @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "ordemExibicao") String sort
+    	) {
+    	    return service.filtrar(tipoRecorte, material, corMaterial, posicaoRecorte,
+    	        sku, nomeModelo, tipoProduto, status, page, size, sort);
+    	}
 
     @PostMapping(consumes = "multipart/form-data")
     public ResponseEntity<RecorteResponseDTO> salvar(

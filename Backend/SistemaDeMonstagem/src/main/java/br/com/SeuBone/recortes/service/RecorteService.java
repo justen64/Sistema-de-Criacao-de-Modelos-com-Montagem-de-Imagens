@@ -74,12 +74,16 @@ public class RecorteService {
     }
     
     public Page<RecorteResponseDTO> filtrar(String tipoRecorte, String material, String corMaterial,
-            String posicaoRecorte, String sku, String nome,
+            String posicaoRecorte, String sku, String nomeModelo,
+            String tipoProduto, Status status,
             int page, int size, String sort) {
+
         Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
 
-        Page<Recorte> recortesPage = repository.findByFiltros(tipoRecorte, material, corMaterial,
-                sku, nome, pageable);
+        Page<Recorte> recortesPage = repository.findByFiltros(
+            tipoRecorte, material, corMaterial, posicaoRecorte,
+            sku, nomeModelo, tipoProduto, status, pageable
+        );
 
         return recortesPage.map(this::toDTO);
     }

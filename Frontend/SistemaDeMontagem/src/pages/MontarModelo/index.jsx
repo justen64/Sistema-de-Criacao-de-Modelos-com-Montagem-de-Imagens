@@ -70,17 +70,6 @@ export const MontarModelo = () => {
     }
   };
 
-  const aplicarFiltros = () => {
-    let resultado = [...recortes];
-
-    if (filtroAtivo === "ATIVOS") {
-      resultado = resultado.filter((r) => r.status === "ATIVO");
-    } else if (filtroAtivo === "EXPIREADOS") {
-      resultado = resultado.filter((r) => r.status === "DESATIVADO");
-    }
-
-    setRecortesFiltrados(resultado);
-  };
 
   const mostrarTodos = async () => {
     setFiltroAtivo("TODOS");
@@ -125,35 +114,45 @@ export const MontarModelo = () => {
   };
 
   const buscar = async (page = 0, size = rows) => {
-    try {
-      if (globalFilter.trim() === "") {
-        await loadAllRecortes(page, size);
-        return;
-      }
-
-      const todosDados = await loadAllRecortesSemPaginacao();
-      let resultadoFiltrado = todosDados.content.filter((r) =>
-        r.nomeModelo.toLowerCase().includes(globalFilter.toLowerCase())
-      );
-
-      if (filtroAtivo === "ATIVOS") {
-        resultadoFiltrado = resultadoFiltrado.filter(
-          (r) => r.status === "ATIVO"
-        );
-      } else if (filtroAtivo === "EXPIREADOS") {
-        resultadoFiltrado = resultadoFiltrado.filter(
-          (r) => r.status === "DESATIVADO"
-        );
-      }
-
-      setRecortesFiltrados(resultadoFiltrado);
-      setTotalRecords(resultadoFiltrado.length);
-      setFirst(0);
-    } catch (error) {
-      console.error("Erro ao buscar recortes:", error);
-      setRecortesFiltrados([]);
+  try {
+    if (globalFilter.trim() === "") {
+      await loadAllRecortes(page, size);
+      return;
     }
-  };
+
+    const todosDados = await loadAllRecortesSemPaginacao();
+    let resultadoFiltrado = todosDados.content.filter((r) => {
+      const filtro = globalFilter.toLowerCase();
+      return (
+        r.nomeModelo?.toLowerCase().includes(filtro) ||
+        r.sku?.toLowerCase().includes(filtro) ||
+        r.ordemExibicao?.toString().toLowerCase().includes(filtro) ||
+        r.tipoRecorte?.toLowerCase().includes(filtro) ||
+        r.posicaoRecorte?.toLowerCase().includes(filtro) ||
+        r.tipoProduto?.toLowerCase().includes(filtro) ||
+        r.material?.toLowerCase().includes(filtro) ||
+        r.corMaterial?.toLowerCase().includes(filtro)
+      );
+    });
+
+    if (filtroAtivo === "ATIVOS") {
+      resultadoFiltrado = resultadoFiltrado.filter(
+        (r) => r.status === "ATIVO"
+      );
+    } else if (filtroAtivo === "EXPIREADOS") {
+      resultadoFiltrado = resultadoFiltrado.filter(
+        (r) => r.status === "DESATIVADO"
+      );
+    }
+
+    setRecortesFiltrados(resultadoFiltrado);
+    setTotalRecords(resultadoFiltrado.length);
+    setFirst(0);
+  } catch (error) {
+    console.error("Erro ao buscar recortes:", error);
+    setRecortesFiltrados([]);
+  }
+};
 
   useEffect(() => {
     const timer = setTimeout(() => {
